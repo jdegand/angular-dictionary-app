@@ -1,0 +1,133 @@
+<!--
+    <p>word-details works!</p>
+    <p *ngIf="word$">{{word$ | async | json}}</p>
+-->
+
+<!-- 
+- problem with using ngFor 
+- 'greet' has incorrectly formatted json
+- word definitions are not all in the same array so the word and audio section of the json is repeated
+- rendered html will have duplication of the article__heading div i.e. multiple audio players 
+
+- possible to use conditional to check if word.word === greet and then return different html ?
+- likely this isn't the only word with this problem
+
+- I used 'first' to show the heading section for only the first entry of word$  
+
+- Fixing the duplication of the heading section doesn't prevent the duplication of the source section
+- Used last to only show the last source entry as this causes no extra layout changes
+- the entry for 'greet' now looks the same as an entry with a correct json response
+
+- if you look at my react implementation, you only get the first meaning of 'greet' and the rest of meanings are discarded   
+
+-->
+
+<div class="app__error" *ngIf="errorResponse">{{ errorResponse.message }}</div>
+<div>
+  <article
+    *ngFor="
+      let word of word$ | async;
+      first as onlyFirstEntryWord;
+      last as lastEntrySource
+    "
+  >
+    <section class="article__heading" *ngIf="onlyFirstEntryWord">
+      <div class="article__heading__left">
+        <h1 data-testid="article-h1">{{ word.word }}</h1>
+        <h2>{{ word.phonetic }}</h2>
+      </div>
+      <div data-testid="player-div" class="article__heading__right">
+        <div
+          *ngFor="
+            let phonetic of findAudio(word.phonetics);
+            first as firstAudio
+          "
+        >
+          <div *ngIf="firstAudio">
+            <app-player audioSrc="{{ phonetic.audio }}"></app-player>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="article__word__props" *ngFor="let meaning of word.meanings">
+      <app-meaning [meaning]="meaning"></app-meaning>
+    </section>
+    <section class="article__source" *ngIf="lastEntrySource">
+      <h4>Source</h4>
+      <div *ngFor="let el of word.sourceUrls">
+        <app-source [source]="el"></app-source>
+      </div>
+    </section>
+  </article>
+</div>
+
+<!--
+<article *ngFor="let word of (word$ | async); first as onlyWord">
+    <section *ngIf="onlyWord" className="article__heading">
+        <div className="article__heading__left">
+            <h1 data-testid="article-h1">{{word.word}}</h1>
+            <h2>{{word.phonetic}}</h2>
+            <div *ngFor="let phonetic of findPhoneticText(word.phonetics); first as isFirst">
+                <div *ngIf="isFirst">{{phonetic.text}}</div>
+            </div>
+        </div>
+        <div data-testid="player-div" className="article__heading__right">
+            <div *ngFor="let phonetic of findAudio(word.phonetics); first as firstAudio">
+                <div *ngIf="firstAudio">
+                    <button className="player__button" (click)="isPlaying()">
+                        <span *ngIf="playing">
+                            <svg data-testid="pause-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <title>Pause</title>
+                                <path fill="currentcolor" d="M14,19H18V5H14M6,19H10V5H6V19Z" />
+                            </svg>
+                        </span>
+                        <span *ngIf="!playing">
+                            <svg data-testid="play-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <title>Play</title>
+                                <path fill="currentcolor" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                            </svg>
+                        </span>
+                        <span className="sr-only purple-text">
+                            {{playing ? "Pause" : "Play"}}
+                        </span>
+                    </button>
+                    <audio controls>
+                        <source src={{phonetic.audio}} type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section className="article__word__props" *ngFor="let meaning of word.meanings">
+        <h2 className="meaning__partOf">{{meaning.partOfSpeech}}</h2>
+        <h3>Meaning</h3>
+        <ul>
+            <li *ngFor="let def of meaning.definitions">{{def.definition}}</li>
+        </ul>
+        <div *ngIf="meaning.synonyms.length > 0">
+            <h4>Synonyms</h4>
+            <span className="meaning__synonym" *ngFor="let syn of meaning.synonyms">
+                {{syn}}
+            </span>
+        </div>
+    </section>
+    <section className="article__source">
+        <h4>Source</h4>
+        <div *ngFor="let el of word.sourceUrls">
+            <div className="article__source__row">
+                <a className="article__source__row__link" href={{el}} target="_blank" rel="no-referrer">
+                    {{el}}
+                </a>
+                <span className="article__external__link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <title>open-in-new</title>
+                        <path fill="currentcolor"
+                            d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </section>
+</article>
+-->

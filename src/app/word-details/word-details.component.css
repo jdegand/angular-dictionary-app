@@ -1,0 +1,95 @@
+svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Meaning */
+/*
+.meaning__partOf {
+    font-style: italic;
+    margin-block: 20px;
+}
+
+.meaning__synonym {
+    color: #9e50e7;
+    margin-inline: 5px;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+*/
+
+/* End Meaning */
+
+/* Word */
+
+article {
+  padding: 0 10px;
+}
+
+.article__heading {
+  display: flex;
+  gap: 40%;
+  align-items: center;
+  margin: 30px;
+}
+
+/*
+.article__heading {
+    display: flex;
+    gap: 40%;
+    align-items: center;
+    margin: 30px;
+}
+
+.article__external__link {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+*/
+
+.article__source {
+  display: flex;
+  flex-direction: column;
+  margin-block: 20px;
+}
+
+/*
+.article__source__row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.article__source__row__link {
+    color: var(--link-color);
+}
+
+.article__phonetic {
+    margin-block: 20px;
+    color: var(--darkPurple) !important;
+    letter-spacing: 1px;
+}
+*/
+
+/* End Word */
+
+/*
+ul li::before {
+    content: "\2022";
+    color: #9e50e7;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+*/
+
+.app__error {
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  letter-spacing: 1px;
+  overflow-wrap: anywhere;
+  padding: 10px;
+}
