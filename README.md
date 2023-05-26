@@ -34,8 +34,6 @@ Angular conversion of my [React Dictionary App](https://github.com/jdegand/dicti
 
 ![](screenshots/angular-dictionary-app-5.png)
 
-***
-
 ![](screenshots/angular-dictionary-app-6.png)
 
 ***
@@ -75,7 +73,7 @@ I could not have included router at all like I did in my React implementation,  
 
 ## Api Bug 
 
-The word 'greet' has an incorrectly formatted json.  This changed my [word-details](src/app/word-details/word-details.component.html) implementation.
+The word 'greet' has incorrectly formatted json.  This changed my [word-details](src/app/word-details/word-details.component.html) implementation.
 
 ```json
 [
@@ -286,7 +284,7 @@ The word 'greet' has an incorrectly formatted json.  This changed my [word-detai
 - [Stack Overflow](https://stackoverflow.com/questions/52317494/is-it-good-to-call-subscribe-inside-subscribe) - subscribe inside subscribe anti-pattern
 - [Medium](https://benlesh.medium.com/rxjs-observable-interop-with-promises-and-async-await-bebb05306875) - rxjs observable interop with promises and async await
 - [YouTube](https://www.youtube.com/watch?v=l5jARPyOlkM) - Angular Async Pipe - Learn the Main Advantages
-- [Stack Overflow](https://stackoverflow.com/questions/44226380/angular-2-get-value-from-url-with-promise-and-await) - 
+- [Stack Overflow](https://stackoverflow.com/questions/44226380/angular-2-get-value-from-url-with-promise-and-await) - get value from url with promise and await
 - [CodeBurst](https://codeburst.io/understanding-resolvers-in-angular-736e9db71267) - understanding resolvers
 - [Beyond Java](https://www.beyondjava.net/angular-async-await) - angular async await
 - [Stack Overflow](https://stackoverflow.com/questions/37771855/chaining-observables-in-rxjs) - chaining observables in rxjs
