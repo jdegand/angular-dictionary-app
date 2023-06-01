@@ -1,6 +1,7 @@
 {
   "name": "angular-dictionary-app",
   "version": "0.0.0",
+  "homepage": "https://jdegand.github.io/angular-dictionary-app",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
