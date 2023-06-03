@@ -6,6 +6,7 @@ Angular conversion of my [React Dictionary App](https://github.com/jdegand/dicti
 
 - [Overview](#overview)
   - [Screenshots](#screenshots)
+  - [Link](#link)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Thoughts](#thoughts)
@@ -46,6 +47,10 @@ Angular conversion of my [React Dictionary App](https://github.com/jdegand/dicti
 
 ***
 
+### Link
+
+[Live Link](https://jdegand.github.io/angular-dictionary-app/)
+
 ## My process
 
 ### Built with
@@ -53,6 +58,7 @@ Angular conversion of my [React Dictionary App](https://github.com/jdegand/dicti
 - [Angular](https://angular.io)
 - [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
 - [Dictionary Api](https://dictionaryapi.dev/)
+- [Cypress](https://docs.cypress.io)
 
 ## Thoughts
 
@@ -70,6 +76,9 @@ I could not have included router at all like I did in my React implementation,  
 - Important to remember, not to use # on ng-template when passing an else reference
 - Navigating back to the homepage does not clear the input value of the search form - possible to use ngOnInit in app component to reset it ? 
 - Had issue with select option font color matching the option's background (could only see option text when cycling thru them) with dark mode 
+- Had trouble with angular-cli-ghpages because of angular 16 upgrade - added angular-cli-ghpages after creating the project and didn't realize it installed incorrectly - the package has since been updated and works fine with angular 16 -  so I removed the package and re-installed it again
+- To run cypress e2e test, need use to use `npx cypress open` and have the application running in another terminal
+- Made slight changes to word-details html to allow cypress to grab certain elements
 
 ## Api Bug 
 
@@ -307,3 +316,10 @@ The word 'greet' has incorrectly formatted json.  This changed my [word-details]
 - [Stack Overflow](https://stackoverflow.com/questions/62567799/angular-9-rxjs-how-to-handle-an-error-thrown-inside-switchmap) - rxjs how to handle an error thrown inside switchMap
 - [Angular University](https://blog.angular-university.io/rxjs-error-handling/) - rxjs error handling
 - [Stack Overflow](https://stackoverflow.com/questions/12836227/change-select-box-option-background-color) - change select box option background color
+- [Cypress Docs](https://docs.cypress.io/guides/component-testing/angular/quickstart) - angular cypress quickstart
+- [Marmicode](https://marmicode.io/blog/testing-angular-components-using-cypress) - testing angular components using cypress
+- [Testing with Angular](https://testing-angular.com/end-to-end-testing/) - end to end testing
+- [Stack Overflow](https://stackoverflow.com/questions/66599428/audio-play-in-cypress) - audio play in cypress
+- [Stack Overflow](https://stackoverflow.com/questions/48077725/angular-4-failed-cant-resolve-all-parameters-for-activatedroute) - activatedRoute provide
+- [Stack Overflow](https://stackoverflow.com/questions/57103179/how-do-i-mock-or-stub-a-function-in-angular-when-using-cypress) - mock / stub a function in angular using cypress
+- [Stack Overflow](https://stackoverflow.com/questions/58250235/stubbing-out-angular-services-in-cypress) - stubbing out angular services in cypress
