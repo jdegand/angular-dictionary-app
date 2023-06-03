@@ -33,17 +33,17 @@
   >
     <section class="article__heading" *ngIf="onlyFirstEntryWord">
       <div class="article__heading__left">
-        <h1 data-testid="article-h1">{{ word.word }}</h1>
+        <h1 class="article-h1">{{ word.word }}</h1>
         <h2>{{ word.phonetic }}</h2>
       </div>
-      <div data-testid="player-div" class="article__heading__right">
+      <div class="article__heading__right">
         <div
           *ngFor="
             let phonetic of findAudio(word.phonetics);
             first as firstAudio
           "
         >
-          <div *ngIf="firstAudio">
+          <div class="player-div" *ngIf="firstAudio">
             <app-player audioSrc="{{ phonetic.audio }}"></app-player>
           </div>
         </div>
