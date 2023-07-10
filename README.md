@@ -7,6 +7,7 @@ Angular conversion of my [React Dictionary App](https://github.com/jdegand/dicti
 - [Overview](#overview)
   - [Screenshots](#screenshots)
   - [Link](#link)
+  - [How to Use](#how-to-use)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Thoughts](#thoughts)
@@ -51,6 +52,23 @@ Angular conversion of my [React Dictionary App](https://github.com/jdegand/dicti
 
 [Live Link](https://jdegand.github.io/angular-dictionary-app/)
 
+### How to Use 
+
+```bash
+
+git clone https://github.com/jdegand/angular-dictionary-app.git
+
+# cd into the directory
+npm install 
+
+npm start
+
+# open another terminal for tests 
+
+npx cypress open 
+
+```
+
 ## My process
 
 ### Built with
@@ -62,23 +80,22 @@ Angular conversion of my [React Dictionary App](https://github.com/jdegand/dicti
 
 ## Thoughts
 
-- Used this project as a basis to test new Angular 16 features
-- Used standalone components for everything and even removed app.module and changed main.ts to bootstrap the application
-- Not really gonna be errors on the searchForm - submission is prevented if the input is empty
-- You can type the word in the input or just change the query parameter value 
+- Used this project as a basis to test new Angular 16 features.
+- Used standalone components for everything. Removed app.module and changed main.ts to bootstrap the application.
+- No errors are shown on the searchForm - submission is prevented if the input is empty.
+- You can type the word in the input or just change the query parameter value.
 - pneumonoultramicroscopicsilicovolcanoconiosis - maxLength for search input 
-- Many different ways to get make api request - thought about using state and passing the result of the query to word-details component,
-I could not have included router at all like I did in my React implementation,  different implementation of router, etc.
-- Added a router link on the book icon to go back to the home page - missing from my react implementation
-- Used long words to test the play and pause functionality
-- Showing an error when the observable failed was difficult to figure out and required some trial and error
-- Using an async pipe with first and last - made it difficult to know if I could use an else statement as well
-- Important to remember, not to use # on ng-template when passing an else reference
+- Many different ways to get make api request - thought about using state and passing the result of the query to word-details component, I could not have excluded router like I did in my React implementation,  different implementation of router, etc.
+- Added a router link on the book icon to go back to the home page. This was missing from my react implementation.
+- Used long words to test the play and pause functionality.
+- Showing an error when the observable failed was difficult to figure out and required some trial and error.
+- Using an async pipe with first and last - made it difficult to know if I could use an else statement as well.
+- Important to remember, not to use # on ng-template when passing an else reference.
 - Navigating back to the homepage does not clear the input value of the search form - possible to use ngOnInit in app component to reset it ? 
-- Had issue with select option font color matching the option's background (could only see option text when cycling thru them) with dark mode 
-- Had trouble with angular-cli-ghpages because of angular 16 upgrade - added angular-cli-ghpages after creating the project and didn't realize it installed incorrectly - the package has since been updated and works fine with angular 16 -  so I removed the package and re-installed it again
+- Had issue with select option font color matching the option's background (could only see option text when cycling thru them) with dark mode.
+- Had trouble with angular-cli-ghpages because of angular 16 upgrade - added angular-cli-ghpages after creating the project and didn't realize it installed incorrectly - the package has since been updated and works fine with angular 16 - so I removed the package and re-installed it again.
 - To run cypress e2e test, need use to use `npx cypress open` and have the application running in another terminal
-- Made slight changes to word-details html to allow cypress to grab certain elements
+- Made slight changes to word-details html to allow cypress to grab certain elements.
 
 ## Api Bug 
 
