@@ -31,33 +31,21 @@
 .Toggle__display {
   --offset: 0.25em;
   --diameter: 1.8em;
-  /*
-    width: calc(var(--diameter) * 2 + var(--offset) * 2); 
-    height: calc(var(--diameter) + var(--offset) * 2); 
-    */
   display: inline-flex;
   align-items: center;
   justify-content: space-around;
-
   width: 60px;
   height: 40px;
-
   border: 0.1em solid rgb(0 0 0 / 0.2);
-
   position: relative;
   border-radius: 100vw;
   background-color: var(--toggle-background);
-
   transition: 250ms;
   cursor: pointer;
 }
 
 .Toggle__display::before {
   content: "";
-  /*
-    width: var(--diameter); 
-    height: var(--diameter); 
-    */
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -88,20 +76,20 @@
   height: 100%;
 }
 
-.Toggle__input:focus + .Toggle__display {
+.Toggle__input:focus+.Toggle__display {
   outline: 1px solid blueviolet;
   outline: 1px auto -webkit-focus-ring-color;
 }
 
-.Toggle__input:focus:not(:focus-visible) + .Toggle__display {
+.Toggle__input:focus:not(:focus-visible)+.Toggle__display {
   outline: 0;
 }
 
-.Toggle__input:checked + .Toggle__display {
+.Toggle__input:checked+.Toggle__display {
   background-color: var(--toggle-background);
 }
 
-.Toggle__input:checked + .Toggle__display::before {
+.Toggle__input:checked+.Toggle__display::before {
   transform: translate(100%, -50%);
 }
 
