@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { catchError, of, switchMap } from 'rxjs';
 import { ApiService } from '../services/api.service';
 import { PlayerComponent } from '../player/player.component';
@@ -16,28 +16,15 @@ import { SourceComponent } from '../source/source.component';
 })
 export class WordDetailsComponent {
   errorResponse: any;
-  //word: any;
   word$: any;
   playing = false;
 
   constructor(
     private route: ActivatedRoute,
-    private apiService: ApiService,
-    private router: Router
+    private apiService: ApiService
   ) {}
 
   ngOnInit() {
-    /*
-    this.route.queryParams
-      .subscribe((params: any) => {
-        // save the param value to a variable - optional
-        // nest apiService call here 
-        this.apiService.getWord(params.word).subscribe()
-        // assign response of subscription to a variable and pass that to template  
-      }
-    );
-    */
-
     this.word$ = this.route.queryParamMap.pipe(
       switchMap((params: any): any => {
         const query = params.get('word') ?? '';
@@ -50,7 +37,6 @@ export class WordDetailsComponent {
             })
           );
         }
-        //return of([]);
       })
     );
   }
@@ -67,8 +53,3 @@ export class WordDetailsComponent {
     this.playing = !this.playing;
   }
 }
-
-/*
-  const query: string = this.route.snapshot.queryParams['word'];
-  console.log('query', query)
-*/
