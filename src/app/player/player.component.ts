@@ -1,7 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OnInit } from '@angular/core';
-import { AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-player',
