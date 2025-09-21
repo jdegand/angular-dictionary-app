@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, of, switchMap } from 'rxjs';
@@ -14,14 +14,14 @@ import { SourceComponent } from '../source/source.component';
   templateUrl: './word-details.component.html',
   styleUrls: ['./word-details.component.css', '../../styles.css'],
 })
-export class WordDetailsComponent {
+export class WordDetailsComponent implements OnInit {
   errorResponse: any;
   word$: any;
   playing = false;
 
   constructor(
-    private route: ActivatedRoute,
-    private apiService: ApiService
+    private readonly route: ActivatedRoute,
+    private readonly apiService: ApiService
   ) {}
 
   ngOnInit() {

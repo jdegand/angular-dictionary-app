@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OnInit } from '@angular/core';
+import { AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-player',
@@ -8,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css', '../../styles.css'],
 })
-export class PlayerComponent {
+export class PlayerComponent implements OnInit, AfterViewInit {
   @Input() audioSrc: any;
 
   playing = false;

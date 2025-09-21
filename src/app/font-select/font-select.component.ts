@@ -12,7 +12,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class FontSelectComponent {
   fonts = ['Serif', 'Sans-Serif', 'Monospace'];
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(@Inject(DOCUMENT) private readonly document: Document) { }
 
   fontChange(fontForm: NgForm) {
     this.document.body.setAttribute('class', '');
